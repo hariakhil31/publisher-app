@@ -40,7 +40,7 @@
     <!-- Prebid Config Section END -->
 
     <!-- Prebid Boilerplate Section START. No Need to Edit. -->
-    <script type="text/javascript" src="../../src/main/webapp/js/build/dev/prebid.js" async></script>
+    <g:javascript library="prebid"></g:javascript>
     <script>
         /*	var googletag = googletag || {};
          googletag.cmd = googletag.cmd || [];
