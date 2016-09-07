@@ -58,12 +58,13 @@
         function sendAdserverRequest() {
             if (pbjs.adserverRequestSent) return;
             pbjs.adserverRequestSent = true;
-            googletag.cmd.push(function() {
+           /* googletag.cmd.push(function() {
                 pbjs.que.push(function() {
                     pbjs.setTargetingForGPTAsync();
                     googletag.pubads().refresh();
                 });
-            });
+            });*/
+            console.log("bids back: ",JSON.stringify(pbjs.getBidResponses()));
         }
 
         setTimeout(function() {
