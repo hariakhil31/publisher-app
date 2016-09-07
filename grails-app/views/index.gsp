@@ -1,123 +1,118 @@
-<!doctype html>
+<%--
+  Created by IntelliJ IDEA.
+  User: akhil
+  Date: 29/8/16
+  Time: 12:33 PM
+--%>
 <html>
-    <head>
-        <meta name="layout" content="main"/>
-        <title>Welcome to Grails</title>
-        <style type="text/css" media="screen">
-            #status {
-                background-color: #eee;
-                border: .2em solid #fff;
-                margin: 2em 2em 1em;
-                padding: 1em;
-                width: 12em;
-                float: left;
-                -moz-box-shadow: 0px 0px 1.25em #ccc;
-                -webkit-box-shadow: 0px 0px 1.25em #ccc;
-                box-shadow: 0px 0px 1.25em #ccc;
-                -moz-border-radius: 0.6em;
-                -webkit-border-radius: 0.6em;
-                border-radius: 0.6em;
-            }
+<head>
+    <!-- Prebid Config Section START -->
+    <!-- Make sure this is inserted before your GPT tag -->
+    <script>
+        var PREBID_TIMEOUT = 700;
 
-            #status ul {
-                font-size: 0.9em;
-                list-style-type: none;
-                margin-bottom: 0.6em;
-                padding: 0;
-            }
-
-            #status li {
-                line-height: 1.3;
-            }
-
-            #status h1 {
-                text-transform: uppercase;
-                font-size: 1.1em;
-                margin: 0 0 0.3em;
-            }
-
-            #page-body {
-                margin: 2em 1em 1.25em 18em;
-            }
-
-            h2 {
-                margin-top: 1em;
-                margin-bottom: 0.3em;
-                font-size: 1em;
-            }
-
-            p {
-                line-height: 1.5;
-                margin: 0.25em 0;
-            }
-
-            #controller-list ul {
-                list-style-position: inside;
-            }
-
-            #controller-list li {
-                line-height: 1.3;
-                list-style-position: inside;
-                margin: 0.25em 0;
-            }
-
-            @media screen and (max-width: 480px) {
-                #status {
-                    display: none;
+        var adUnits = [{
+            code: 'div-ad-1460505748561-0',
+            sizes: [[300, 250], [300,600]],
+            bids: [{
+                bidder: 'vgadp',
+                params: {
+                    param1: '4799418',
+                    param1: 'aaab-289u-bee0-bea21'
                 }
-
-                #page-body {
-                    margin: 0 1em 1em;
+            }]
+        },{
+            code: 'div-ad-1460505661639-0',
+            sizes: [[728, 90], [970, 90]],
+            bids: [{
+                bidder: 'vgadp',
+                params: {
+                    param1: '10290181',
+                    param1: '390ba-bec1-fd28f-aeef'
                 }
+            }]
+        }];
 
-                #page-body h1 {
-                    margin-top: 0;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div id="status" role="complementary">
-            <h1>Application Status</h1>
-            <ul>
-                <li>Environment: ${grails.util.Environment.current.name}</li>
-                <li>App profile: ${grailsApplication.config.grails?.profile}</li>
-                <li>App version: <g:meta name="info.app.version"/></li>
-                <li>Grails version: <g:meta name="info.app.grailsVersion"/></li>
-                <li>Groovy version: ${GroovySystem.getVersion()}</li>
-                <li>JVM version: ${System.getProperty('java.version')}</li>
-                <li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
-            </ul>
-            <h1>Artefacts</h1>
-            <ul>
-                <li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-                <li>Domains: ${grailsApplication.domainClasses.size()}</li>
-                <li>Services: ${grailsApplication.serviceClasses.size()}</li>
-                <li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>                    
-            </ul>
-            <h1>Installed Plugins</h1>
-            <ul>
-                <g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-                    <li>${plugin.name} - ${plugin.version}</li>
-                </g:each>
-            </ul>
-        </div>
-        <div id="page-body" role="main">
-            <h1>Welcome to Grails</h1>
-            <p>Congratulations, you have successfully started your first Grails application! At the moment
-               this is the default page, feel free to modify it to either redirect to a controller or display whatever
-               content you may choose. Below is a list of controllers that are currently deployed in this application,
-               click on each to execute its default action:</p>
+        var pbjs = pbjs || {};
+        pbjs.que = pbjs.que || [];
 
-            <div id="controller-list" role="navigation">
-                <h2>Available Controllers:</h2>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-                    </g:each>
-                </ul>
-            </div>
-        </div>
-    </body>
+    </script>
+    <!-- Prebid Config Section END -->
+
+    <!-- Prebid Boilerplate Section START. No Need to Edit. -->
+    <script type="text/javascript" src="//acdn.adnxs.com/prebid/not-for-prod/prebid.js" async></script>
+    <script>
+        /*	var googletag = googletag || {};
+         googletag.cmd = googletag.cmd || [];
+         googletag.cmd.push(function() {
+         googletag.pubads().disableInitialLoad();
+         });*/
+
+        pbjs.que.push(function() {
+            pbjs.addAdUnits(adUnits);
+            pbjs.requestBids({
+                bidsBackHandler: sendAdserverRequest
+            });
+        });
+
+        function sendAdserverRequest() {
+            if (pbjs.adserverRequestSent) return;
+            pbjs.adserverRequestSent = true;
+            googletag.cmd.push(function() {
+                pbjs.que.push(function() {
+                    pbjs.setTargetingForGPTAsync();
+                    googletag.pubads().refresh();
+                });
+            });
+        }
+
+        setTimeout(function() {
+            sendAdserverRequest();
+        }, PREBID_TIMEOUT);
+
+    </script>
+    <!-- Prebid Boilerplate Section END -->
+
+    %{--<script>
+        (function () {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+                    '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+    </script>--}%
+
+    %{--<script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/19968336/header-bid-tag-0', [[300, 250], [300, 600]], 'div-ad-1460505748561-0').addService(googletag.pubads());
+
+            googletag.defineSlot('/19968336/header-bid-tag1', [[728, 90], [970, 90]], 'div-ad-1460505661639-0').addService(googletag.pubads());
+
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>--}%
+</head>
+
+<body>
+<h2>Prebid.js Test</h2>
+<h5>Div-1</h5>
+<div id='div-ad-1460505748561-0'>
+    %{--<script type='text/javascript'>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1460505748561-0'); });
+    </script>--}%
+</div>
+
+<h5>Div-2</h5>
+<div id='div-ad-1460505661639-0'>
+    %{--<script type='text/javascript'>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1460505661639-0'); });
+    </script>--}%
+</div>
+
+</body>
 </html>
