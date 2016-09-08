@@ -89,7 +89,7 @@ Released for free under a Creative Commons Attribution 3.0 License
                     <h2 class="star"><span>Categories</span></h2>
                     <ul class="ex_menu">
                         <li><a href="#"
-                               title="Technology">Technology</a><br/>Know abou the recent tech news.</li>
+                               title="Technology">Technology</a><br/>Know about the recent tech news.</li>
                         <li><a href="#"
                                title="Entertainment">Entertainment</a><br/>Looking for blogs about for favorite celeb?
                         </li>
@@ -119,7 +119,7 @@ Released for free under a Creative Commons Attribution 3.0 License
             </div>
 
             <div class="col c2">
-                <h2>Lorem Ipsum</h2>
+                <h2>More/h2>
                 <ul class="sb_menu">
                     <li><a href="#">consequat molestie</a></li>
                     <li><a href="#">sem justo</a></li>
