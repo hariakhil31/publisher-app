@@ -9,7 +9,7 @@
     <!-- Prebid Config Section START -->
     <!-- Make sure this is inserted before your GPT tag -->
     <script>
-        var PREBID_TIMEOUT = 700;
+        var PREBID_TIMEOUT = 7000;
 
         var adUnits = [{
             code: 'div-ad-1460505748561-0',
@@ -40,7 +40,7 @@
     <!-- Prebid Config Section END -->
 
     <!-- Prebid Boilerplate Section START. No Need to Edit. -->
-    <g:javascript library="prebid"></g:javascript>
+    <g:javascript src="build/dev/prebid.js"></g:javascript>
     <script>
         /*	var googletag = googletag || {};
          googletag.cmd = googletag.cmd || [];
