@@ -9,7 +9,7 @@
     <!-- Prebid Config Section START -->
     <!-- Make sure this is inserted before your GPT tag -->
     <script>
-        var PREBID_TIMEOUT = 7000;
+        var PREBID_TIMEOUT = 12000;
 
         var adUnits = [{
             code: 'div-ad-1460505748561-0',
@@ -41,6 +41,7 @@
 
     <!-- Prebid Boilerplate Section START. No Need to Edit. -->
     <g:javascript src="build/dev/prebid.js"></g:javascript>
+    <g:javascript src="jquery/jquery-1.11.3.js"></g:javascript>
     <script>
         /*	var googletag = googletag || {};
          googletag.cmd = googletag.cmd || [];
@@ -65,6 +66,31 @@
                 });
             });*/
             console.log("bids back: ",JSON.stringify(pbjs.getBidResponses()));
+            var bids = pbjs.getBidResponses().vgadp.bids;
+            var max = 0;
+            var cr_id="";
+            jQuery.each(bids, function(i,bid){
+                if(bid.cpm>max){
+                    max = bid.cpm;
+                    cr_id = bid.creative_id;
+                }
+            });
+
+           /* jQuery.ajax(
+                    {
+                        method: "GET",
+                        url: "http://localhost:8081/Adserver/adServer/showAd?id="+cr_id,
+                        success: function(response){
+                            jQuery('#div-ad-1460505748561-0').html(response);
+                        }
+                    }
+
+            );
+*/
+
+            var iframe = document.createElement('iframe');
+            iframe.src = "http://localhost:8081/Adserver/adServer/showAd?id="+cr_id;
+            document.body.appendChild(iframe);
         }
 
         setTimeout(function() {
