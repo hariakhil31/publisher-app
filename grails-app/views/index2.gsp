@@ -119,24 +119,24 @@ Released for free under a Creative Commons Attribution 3.0 License
             </div>
 
             <div class="col c2">
-                <h2>More/h2>
+                <h2>More</h2>
                 <ul class="sb_menu">
-                    <li><a href="#">consequat molestie</a></li>
-                    <li><a href="#">sem justo</a></li>
-                    <li><a href="#">semper</a></li>
-                    <li><a href="#">magna sed purus</a></li>
-                    <li><a href="#">tincidunt</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="#">Leadership</a></li>
+                    <li><a href="#">Awards</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Careers</a></li>
                 </ul>
             </div>
 
             <div class="col c3">
                 <h2>Contact</h2>
 
-                <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.</p>
+                <p>Whether you're searching for a new partner or a new career, we want to hear from you! .</p>
 
-                <p><strong>Phone:</strong> +1234567<br/>
-                    <strong>Address:</strong> 123 TemplateAccess Rd<br/>
-                    <strong>E-mail:</strong> <a href="mailto:info@example.com">info@example.com</a></p>
+                <p><strong>Phone:</strong> +91 124 21234567<br/>
+                    <strong>Address:</strong> Noida Sector 123<br/>
+                    <strong>E-mail:</strong> <a href="mailto:info@intelliblog.com">info@intelliblog.com</a></p>
             </div>
 
             <div class="clr"></div>
@@ -145,8 +145,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 
     <div class="footer">
         <div class="footer_resize">
-            <p class="lf">&copy; Copyright MyWebSite. Designed by Blue <a
-                    href="http://www.bluewebtemplates.com">Website Templates</a></p>
+            <p class="lf">&copy;</p>
             <ul class="fmenu">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Support</a></li>
