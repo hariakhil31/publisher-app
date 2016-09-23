@@ -12,8 +12,8 @@
         var PREBID_TIMEOUT = 12000;
 
         var adUnits = [{
-            code: 'div-ad-1460505748561-0',
-            sizes: [[300, 250], [300,600]],
+            code: 'div-gpt-ad-1474538683157-0',
+            sizes: [[480, 320], [180, 150], [234, 60], [336, 280], [240, 400], [468, 60]],
             bids: [{
                 bidder: 'vgadp',
                 params: {
@@ -22,8 +22,8 @@
                 }
             }]
         },{
-            code: 'div-ad-1460505661639-0',
-            sizes: [[728, 90], [970, 90]],
+            code: 'div-gpt-ad-1474538683157-1',
+            sizes: [[480, 320], [300, 250], [216, 54], [768, 1024], [234, 60], [468, 60]],
             bids: [{
                 bidder: 'vgadp',
                 params: {
@@ -43,11 +43,11 @@
     <g:javascript src="build/dev/prebid.js"></g:javascript>
     <g:javascript src="jquery/jquery-1.11.3.js"></g:javascript>
     <script>
-        /*	var googletag = googletag || {};
+        	var googletag = googletag || {};
          googletag.cmd = googletag.cmd || [];
          googletag.cmd.push(function() {
          googletag.pubads().disableInitialLoad();
-         });*/
+         });
 
         pbjs.que.push(function() {
             pbjs.addAdUnits(adUnits);
@@ -59,38 +59,12 @@
         function sendAdserverRequest() {
             if (pbjs.adserverRequestSent) return;
             pbjs.adserverRequestSent = true;
-           /* googletag.cmd.push(function() {
+            googletag.cmd.push(function() {
                 pbjs.que.push(function() {
                     pbjs.setTargetingForGPTAsync();
                     googletag.pubads().refresh();
                 });
-            });*/
-            console.log("bids back: ",JSON.stringify(pbjs.getBidResponses()));
-            var bids = pbjs.getBidResponses().vgadp.bids;
-            var max = 0;
-            var cr_id="";
-            jQuery.each(bids, function(i,bid){
-                if(bid.cpm>max){
-                    max = bid.cpm;
-                    cr_id = bid.creative_id;
-                }
             });
-
-           /* jQuery.ajax(
-                    {
-                        method: "GET",
-                        url: "http://localhost:8081/Adserver/adServer/showAd?id="+cr_id,
-                        success: function(response){
-                            jQuery('#div-ad-1460505748561-0').html(response);
-                        }
-                    }
-
-            );
-*/
-
-            var iframe = document.createElement('iframe');
-            iframe.src = "http://localhost:8081/Adserver/adServer/showAd?id="+cr_id;
-            document.body.appendChild(iframe);
         }
 
         setTimeout(function() {
@@ -98,9 +72,7 @@
         }, PREBID_TIMEOUT);
 
     </script>
-    <!-- Prebid Boilerplate Section END -->
-
-    %{--<script>
+    <script>
         (function () {
             var gads = document.createElement('script');
             gads.async = true;
@@ -111,34 +83,38 @@
             var node = document.getElementsByTagName('script')[0];
             node.parentNode.insertBefore(gads, node);
         })();
-    </script>--}%
-
-    %{--<script>
-        googletag.cmd.push(function () {
-            googletag.defineSlot('/19968336/header-bid-tag-0', [[300, 250], [300, 600]], 'div-ad-1460505748561-0').addService(googletag.pubads());
-
-            googletag.defineSlot('/19968336/header-bid-tag1', [[728, 90], [970, 90]], 'div-ad-1460505661639-0').addService(googletag.pubads());
-
+    </script>
+    <script>
+        googletag.cmd.push(function() {
+            googletag.defineSlot('/44911176/categories', [[480, 320], [180, 150], [234, 60], [336, 280], [240, 400], [468, 60]], 'div-gpt-ad-1474538683157-0').addService(googletag.pubads());
+            googletag.defineSlot('/44911176/categories//books', [[480, 320], [300, 250], [216, 54], [768, 1024], [234, 60], [468, 60]], 'div-gpt-ad-1474538683157-1').addService(googletag.pubads());
             googletag.pubads().enableSingleRequest();
+            googletag.pubads().setTargeting('hb_pb', []);
             googletag.enableServices();
         });
-    </script>--}%
+    </script>
+    <!-- Prebid Boilerplate Section END -->
+
+
 </head>
 
 <body>
 <h2>Prebid.js Test</h2>
 <h5>Div-1</h5>
-<div id='div-ad-1460505748561-0'>
-    %{--<script type='text/javascript'>
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1460505748561-0'); });
-    </script>--}%
+
+<!-- /44911176/categories -->
+<div id='div-gpt-ad-1474538683157-0'>
+    <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1474538683157-0'); });
+    </script>
 </div>
 
 <h5>Div-2</h5>
-<div id='div-ad-1460505661639-0'>
-    %{--<script type='text/javascript'>
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1460505661639-0'); });
-    </script>--}%
+<!-- /44911176/categories//books -->
+<div id='div-gpt-ad-1474538683157-1'>
+    <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1474538683157-1'); });
+    </script>
 </div>
 
 </body>
