@@ -1,5 +1,5 @@
 package publisher
-
+import org.asynchttpclient.*;
 
 class PublisherController {
     def sendBids(){
@@ -44,4 +44,39 @@ class PublisherController {
 
         render text: "ok"
     }
+
+    def sendMultipleBids() {
+        long start = System.currentTimeMillis()
+        10.times {
+            long millis = (it % 2 == 0) ? 200 : 300
+//            sendBid(millis, it)
+        }
+        long end = System.currentTimeMillis()
+        println("Total time taken: ${end-start} millis")
+        render text: "Total time: ${end-start} millis"
+    }
+/*
+    def sendSingleBid(int times, long millis){
+        String url = "https://morning-chamber-26141.herokuapp.com/publisher/waitMin?millis=$millis";
+        long start = System.currentTimeMillis()
+        AsyncHttpClient asyncHttpClient = new DefaultAsyncHttpClient();
+
+        asyncHttpClient.prepareGet(url).execute(new AsyncCompletionHandler<Response>(){
+
+            @Override
+            public Response onCompleted(Response response) throws Exception{
+                bidComplete(start, times, response.toString())
+                return response;
+            }
+
+            @Override
+            public void onThrowable(Throwable t){
+                println"Something went wrong with bid $times"
+            }
+        });
+    }
+
+    void bidComplete(long start , int times, String response){
+        println"Bid $times has completed, Response: $response\n Completed in ${(System.currentTimeMillis()-start) millis}"
+    }*/
 }

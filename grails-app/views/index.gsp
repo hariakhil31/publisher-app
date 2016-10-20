@@ -43,6 +43,32 @@
     <g:javascript src="build/dev/prebid.js"></g:javascript>
     <g:javascript src="jquery/jquery-1.11.3.js"></g:javascript>
     <script>
+    function createCookie(name,value,days) {
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime()+(days*24*60*60*1000));
+            var expires = "; expires="+date.toGMTString();
+        }
+        else var expires = "";
+        document.cookie = name+"="+value+expires+"; path=/";
+    }
+
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+    function eraseCookie(name) {
+        createCookie(name,"",-1);
+    }
+    </script>
+    <script>
         	var googletag = googletag || {};
          googletag.cmd = googletag.cmd || [];
          googletag.cmd.push(function() {
@@ -63,6 +89,7 @@
                 pbjs.que.push(function() {
                     pbjs.setTargetingForGPTAsync();
                     googletag.pubads().refresh();
+                    console.log("Refresh done.");
                 });
             });
         }
@@ -87,7 +114,7 @@
     <script>
         googletag.cmd.push(function() {
             googletag.defineSlot('/44911176/categories', [[480, 320], [180, 150], [234, 60], [336, 280], [240, 400], [468, 60]], 'div-gpt-ad-1474538683157-0').addService(googletag.pubads());
-            googletag.defineSlot('/44911176/categories//books', [[480, 320], [300, 250], [216, 54], [768, 1024], [234, 60], [468, 60]], 'div-gpt-ad-1474538683157-1').addService(googletag.pubads());
+            googletag.defineSlot('/44911176/categories/books', [[480, 320], [300, 250], [216, 54], [768, 1024], [234, 60], [468, 60]], 'div-gpt-ad-1474538683157-1').addService(googletag.pubads());
             googletag.pubads().enableSingleRequest();
             googletag.pubads().setTargeting('hb_pb', []);
             googletag.enableServices();

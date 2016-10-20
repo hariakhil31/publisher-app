@@ -42,6 +42,13 @@ repositories {
     maven { url "https://repo.grails.org/grails/core" }
 }
 
+repositories {
+    mavenCentral()
+    maven {
+        url "https://mvnrepository.com/artifact/org.asynchttpclient/async-http-client"
+    }
+}
+
 dependencyManagement {
     imports {
         mavenBom "org.grails:grails-bom:$grailsVersion"
@@ -75,6 +82,7 @@ dependencies {
 
     compile 'org.eclipse.jetty:jetty-runner:9.2.11.v20150529'
     compile 'com.github.jsimone:webapp-runner:8.0.30.2'
+    compile group: 'org.asynchttpclient', name: 'async-http-client', version: '2.0.15'
 }
 
 task wrapper(type: Wrapper) {
